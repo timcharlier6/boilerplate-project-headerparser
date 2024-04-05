@@ -26,13 +26,19 @@ app.get('/api/hello', function (req, res) {
 
 app.get('/api/whoami', (req, res) => {
 
+ const ipaddress = req.ip; // Client's IP address
+  const language = req.headers['accept-language']; // Preferred language
+  const software = req.headers['user-agent']; // User-agent (software)
+
     const response = {
-        "ipaddress": "a",
-        "language": "b",
-        "software": "c",
+        "ipaddress": ipaddress,
+        "language": language,
+        "software": software,
     }
 
-    console.log(response);
+    console.log(ipaddress);
+    console.log(language);
+    console.log(software);
 
     res.send(response);
 })
